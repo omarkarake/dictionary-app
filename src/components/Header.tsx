@@ -1,7 +1,11 @@
 import { RiBook2Line } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { IoMoonOutline } from "react-icons/io5";
+import { useTheme } from "../context/ThemeContext";
+
 const Header = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <>
       <div>
@@ -12,8 +16,12 @@ const Header = () => {
               <p className="font-sans text-body-s md:text-body-m">Sans Serif</p>
               <RiArrowDownSLine className="w-6 h-6 text-purple ml-3 md:ml-5" />
             </div>
-            <div className="ml-2 md:ml-5">
-              <div className="w-10 h-5 bg-gray rounded-xl ml-2 flex flex-col justify-center pl-1">
+            <div className="ml-2 md:ml-5" onClick={toggleTheme}>
+              <div
+                className={`w-10 h-5 rounded-xl ml-2 flex flex-col justify-center ${
+                  theme === "dark" ? "bg-purple items-end pr-1" : "bg-gray pl-1"
+                }`}
+              >
                 <div className="w-[14px] h-[14px] bg-lighter rounded-full cursor-pointer"></div>
               </div>
             </div>
