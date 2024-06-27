@@ -1,7 +1,26 @@
+import { RiBook2Line } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri";
+import { IoMoonOutline } from "react-icons/io5";
 const Header = () => {
   return (
     <>
-      <div>Header</div>
+      <div>
+        <div className="flex justify-between items-center">
+          <RiBook2Line className="w-7 h-8 md:w-8 md:h-9" />
+          <div className="flex items-center">
+            <div className="flex justify-center items-center border-r-2 border-r-solid border-r-lightGray pr-3 md:pr-5">
+              <p className="font-sans text-body-s md:text-body-m">Sans Serif</p>
+              <RiArrowDownSLine className="w-6 h-6 text-purple ml-3 md:ml-5" />
+            </div>
+            <div className="ml-2 md:ml-5">
+              <div className="w-10 h-5 bg-gray rounded-xl ml-2 flex flex-col justify-center pl-1">
+                <div className="w-[14px] h-[14px] bg-lighter rounded-full cursor-pointer"></div>
+              </div>
+            </div>
+            <IoMoonOutline className="w-5 h-5 ml-3 md:ml-5" />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
