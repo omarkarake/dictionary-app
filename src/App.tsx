@@ -27,21 +27,19 @@ function App() {
   }, [selectedFont]);
 
   return (
-    <div
-      className={`w-screen flex items-center justify-center ${
-        isDarkMode ? "dark" : ""
-      }`}
-    >
-      <div
-        className={`w-[90vw] md:w-[88vw] lg:w-[60vw] py-2 md:py-4 lg:py-8 bg-lighter dark:bg-dark`}
-      >
-        <Header
-          selectedFont={selectedFont}
-          onFontChange={handleFontChange}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={toggleDarkMode}
-        />
-        <Body />
+    <div className={`w-screen  ${isDarkMode ? "dark" : ""}`}>
+      <div className="w-[100%] flex items-center justify-center dark:bg-darkest">
+        <div
+          className={`w-[90vw] md:w-[88vw] lg:w-[60vw] py-2 md:py-4 lg:py-8 bg-lighter dark:bg-darkest`}
+        >
+          <Header
+            selectedFont={selectedFont}
+            onFontChange={handleFontChange}
+            isDarkMode={isDarkMode}
+            onToggleDarkMode={toggleDarkMode}
+          />
+          <Body />
+        </div>
       </div>
     </div>
   );

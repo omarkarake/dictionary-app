@@ -9,7 +9,12 @@ interface HeaderProps {
   onToggleDarkMode: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ selectedFont, onFontChange, isDarkMode, onToggleDarkMode }) => {
+const Header: React.FC<HeaderProps> = ({
+  selectedFont,
+  onFontChange,
+  isDarkMode,
+  onToggleDarkMode,
+}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
@@ -33,21 +38,21 @@ const Header: React.FC<HeaderProps> = ({ selectedFont, onFontChange, isDarkMode,
             )}
           </div>
           {dropdownOpen && (
-            <div className="absolute top-full mt-2 bg-white dark:bg-darkGray shadow-md rounded-md">
+            <div className="absolute md:w-[183px] md:pl-6 md:py-6 md:right-32 top-full mt-2 bg-white  shadow-lg rounded-md dark:bg-dark dark:drop-shadow-2xl dark:shadow-purple">
               <p
-                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:text-purple dark:hover:text-purple"
                 onClick={() => onFontChange("Sans Serif")}
               >
                 Sans Serif
               </p>
               <p
-                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:text-purple dark:hover:text-purple"
                 onClick={() => onFontChange("Serif")}
               >
                 Serif
               </p>
               <p
-                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:text-purple dark:hover:text-purple"
                 onClick={() => onFontChange("Mono")}
               >
                 Mono
