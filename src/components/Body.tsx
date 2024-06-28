@@ -67,7 +67,7 @@ const Body = () => {
 
   return (
     <>
-      <div>
+      <div className={`${!dataWhenFetchIsWrong && !data ? "h-screen" : ""}`}>
         <div className="mt-6 md:mt-[51px]">
           <div
             className={`w-[100%] h-12 py-4 px-6 md:p-6 flex justify-between items-center bg-light dark:bg-darker rounded-2xl ${
