@@ -26,7 +26,7 @@ const Header = () => {
               className="flex justify-center items-center border-r-2 border-r-solid border-r-lightGray pr-3 md:pr-5 cursor-pointer"
               onClick={toggleDropdown}
             >
-              <p className="font-sans text-body-s md:text-body-m dark:text-lighter">
+              <p className="text-body-s md:text-body-m dark:text-lighter">
                 {selectedFont}
               </p>
               {dropdownOpen ? (
@@ -38,19 +38,19 @@ const Header = () => {
             {dropdownOpen && (
               <div className="absolute top-full mt-2  bg-white dark:bg-darkGray shadow-md rounded-md">
                 <p
-                  className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
                   onClick={() => handleFontChange("Sans Serif")}
                 >
                   Sans Serif
                 </p>
                 <p
-                  className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
                   onClick={() => handleFontChange("Serif")}
                 >
                   Serif
                 </p>
                 <p
-                  className="font-sans text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="text-body-s md:text-body-m dark:text-lighter cursor-pointer p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
                   onClick={() => handleFontChange("Mono")}
                 >
                   Mono
