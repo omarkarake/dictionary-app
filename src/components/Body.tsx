@@ -8,7 +8,7 @@ const Body = () => {
   const [borderColor, setBorderColor] = useState("");
   const [borderColorRed, setBorderColorRed] = useState("");
   const [playHoverEffect, setPlayHoverEffect] = useState(false);
-  console.log(playHoverEffect);
+  // console.log(playHoverEffect);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -60,6 +60,7 @@ const Body = () => {
           ) : (
             ""
           )}
+          {/* what to be rendered after fetching--------------------------------------- */}
         </div>
         <div className="w-[100%] h-auto flex justify-between items-center mt-7">
           <div className="h-[100%] flex flex-col justify-between ">
@@ -181,32 +182,35 @@ const Body = () => {
             <LiaExternalLinkAltSolid className="ml-2 dark:text-gray" />
           </div>
         </div>
+        {/* what to be rendered when there is no word---------------------------------------------------- */}
+        {/* <div>
+            <div className="flex flex-col items-center">
+              <span
+                className="mt-[132px]"
+                role="img"
+                aria-label="rocket"
+                style={{
+                  fontSize: "64px",
+                  width: "64px",
+                  height: "64px",
+                  display: "inline-block",
+                  textAlign: "center",
+                  lineHeight: "64px",
+                }}
+              >
+                😕
+              </span>
+              <p className="font-bold text-[20px] mt-11 dark:text-lighter">
+                No Definitions Found
+              </p>
+              <p className="text-gray text-body-m mt-6 text-center mb-[250px]">
+                Sorry pal, we couldn't find definitions for the word you were
+                looking for. You can try the search again at later time or head
+                to the web instead.
+              </p>
+            </div>
+          </div> */}
       </div>
-      {/* <div>
-        <div className="flex flex-col items-center">
-          <span
-            className="mt-[132px]"
-            role="img"
-            aria-label="rocket"
-            style={{
-              fontSize: "64px",
-              width: "64px",
-              height: "64px",
-              display: "inline-block",
-              textAlign: "center",
-              lineHeight: "64px",
-            }}
-          >
-            😕
-          </span>
-          <p className="font-bold text-[20px] mt-11 dark:text-lighter">No Definitions Found</p>
-          <p className="text-gray text-body-m mt-6 text-center mb-[350px]">
-            Sorry pal, we couldn't find definitions for the word you were
-            looking for. You can try the search again at later time or head to
-            the web instead.
-          </p>
-        </div>
-      </div> */}
     </>
   );
 };
