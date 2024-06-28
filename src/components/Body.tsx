@@ -6,6 +6,9 @@ import { LiaExternalLinkAltSolid } from "react-icons/lia";
 const Body = () => {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState<any>(null);
+  const [dataWhenFetchIsWrong, setDataWhenFetchIsWrong] = useState<any>(null);
+  console.log(dataWhenFetchIsWrong);
+
   const [borderColor, setBorderColor] = useState("");
   const [borderColorRed, setBorderColorRed] = useState("");
   const [playHoverEffect, setPlayHoverEffect] = useState(false);
@@ -28,8 +31,8 @@ const Body = () => {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
       );
       const data = await response.json();
-      setData(data[0]);
-      console.log(data[0]);
+      "message" in data ? setDataWhenFetchIsWrong(data) : setData(data[0]);
+      // console.log(data[0]);
     } catch (error) {
       console.error("Error fetching the data:", error);
       setData(null);
@@ -171,44 +174,43 @@ const Body = () => {
                 Source
               </p>
               <div className="flex items-end cursor-pointer">
-                <p className="text-dark text-body-s underline mt-2 md:mt-0 dark:text-lighter">
+                <a
+                  href={data.sourceUrls[0]}
+                  className="text-dark text-body-s underline mt-2 md:mt-0 dark:text-lighter"
+                >
                   {data.sourceUrls[0]}
-                </p>
+                </a>
                 <LiaExternalLinkAltSolid className="ml-2 dark:text-gray" />
               </div>
             </div>
           </>
         )}
-        {!data && (
-          <>
-            <div>
-              <div className="flex flex-col items-center">
-                <span
-                  className="mt-[132px]"
-                  role="img"
-                  aria-label="rocket"
-                  style={{
-                    fontSize: "64px",
-                    width: "64px",
-                    height: "64px",
-                    display: "inline-block",
-                    textAlign: "center",
-                    lineHeight: "64px",
-                  }}
-                >
-                  😕
-                </span>
-                <p className="font-bold text-[20px] mt-11 dark:text-lighter">
-                  No Definitions Found
-                </p>
-                <p className="text-gray text-body-m mt-6 text-center mb-[150px] lg:mb-[80px]">
-                  Sorry pal, we couldn't find definitions for the word you were
-                  looking for. You can try the search again at later time or
-                  head to the web instead.
-                </p>
-              </div>
+        {dataWhenFetchIsWrong && (
+          <div>
+            <div className="flex flex-col items-center">
+              <span
+                className="mt-[132px]"
+                role="img"
+                aria-label="sad-face"
+                style={{
+                  fontSize: "64px",
+                  width: "64px",
+                  height: "64px",
+                  display: "inline-block",
+                  textAlign: "center",
+                  lineHeight: "64px",
+                }}
+              >
+                😕
+              </span>
+              <p className="font-bold text-[20px] mt-11 dark:text-lighter">
+                {dataWhenFetchIsWrong.title}
+              </p>
+              <p className="text-gray text-body-m mt-6 text-center mb-[150px] lg:mb-[80px]">
+                {dataWhenFetchIsWrong.message} {dataWhenFetchIsWrong.resolution}
+              </p>
             </div>
-          </>
+          </div>
         )}
       </div>
     </>
