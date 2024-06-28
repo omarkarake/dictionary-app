@@ -1,7 +1,9 @@
 const Body = () => {
   return (
     <>
-      <div>Body</div>
+      <div>Body
+        <p>party time</p>
+      </div>
     </>
   );
 };
