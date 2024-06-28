@@ -7,7 +7,8 @@ const Body = () => {
   const [inputValue, setInputValue] = useState("");
   const [borderColor, setBorderColor] = useState("");
   const [borderColorRed, setBorderColorRed] = useState("");
-  console.log(borderColorRed);
+  const [playHoverEffect, setPlayHoverEffect] = useState(false);
+  console.log(playHoverEffect);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -21,6 +22,14 @@ const Body = () => {
     if (!inputValue) {
       setBorderColor("border-red");
     }
+  };
+
+  const handleMouseEnterPlay = () => {
+    setPlayHoverEffect(true);
+  };
+
+  const handleMouseLeavePlay = () => {
+    setPlayHoverEffect(false);
   };
 
   return (
@@ -63,9 +72,19 @@ const Body = () => {
           </div>
           <div
             className="h-12 w-12 md:h-[75px] md:w-[75px] flex justify-center items-center cursor-pointer rounded-full"
-            style={{ backgroundColor: "rgba(164, 69, 237, 0.25)" }}
+            style={{
+              backgroundColor: `rgba(164, 69, 237, ${
+                playHoverEffect ? 1 : 0.25
+              })`,
+            }}
+            onMouseEnter={handleMouseEnterPlay}
+            onMouseLeave={handleMouseLeavePlay}
           >
-            <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-purple " />
+            {playHoverEffect ? (
+              <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-lighter " />
+            ) : (
+              <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-purple " />
+            )}
           </div>
         </div>
         <div className="mt-[34px]">
