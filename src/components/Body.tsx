@@ -30,8 +30,13 @@ const Body = () => {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
       );
       const data = await response.json();
-      "message" in data ? setDataWhenFetchIsWrong(data) : setData(null);
-      setData(data[0]);
+      if ("message" in data) {
+        setDataWhenFetchIsWrong(data);
+        setData(null);
+      } else {
+        setDataWhenFetchIsWrong(null);
+        setData(data[0]);
+      }
       // console.log(data[0]);
     } catch (error) {
       console.error("Error fetching the data:", error);
