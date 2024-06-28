@@ -1,40 +1,40 @@
-// import { useState } from "react";
-// import { RiSearchLine } from "react-icons/ri";
-// import { IoMdPlay } from "react-icons/io";
-// import { LiaExternalLinkAltSolid } from "react-icons/lia";
+import { useState } from "react";
+import { RiSearchLine } from "react-icons/ri";
+import { IoMdPlay } from "react-icons/io";
+import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
 const Body = () => {
-  // const [inputValue, setInputValue] = useState("");
-  // const [borderColor, setBorderColor] = useState("");
-  // const [borderColorRed, setBorderColorRed] = useState("");
-  // const [playHoverEffect, setPlayHoverEffect] = useState(false);
-  // console.log(playHoverEffect);
+  const [inputValue, setInputValue] = useState("");
+  const [borderColor, setBorderColor] = useState("");
+  const [borderColorRed, setBorderColorRed] = useState("");
+  const [playHoverEffect, setPlayHoverEffect] = useState(false);
+  console.log(playHoverEffect);
 
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value;
-  //   setInputValue(value);
-  //   setBorderColor(value !== "" ? "border-purple" : ""); // Reset border purple color on typing
-  //   setBorderColorRed(value !== "" ? "" : ""); // Reset border red color on typing
-  // };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+    setBorderColor(value !== "" ? "border-purple" : ""); // Reset border purple color on typing
+    setBorderColorRed(value !== "" ? "" : ""); // Reset border red color on typing
+  };
 
-  // const handleSearchClick = () => {
-  //   setBorderColorRed(inputValue === "" ? "border-red" : "");
-  //   if (!inputValue) {
-  //     setBorderColor("border-red");
-  //   }
-  // };
+  const handleSearchClick = () => {
+    setBorderColorRed(inputValue === "" ? "border-red" : "");
+    if (!inputValue) {
+      setBorderColor("border-red");
+    }
+  };
 
-  // const handleMouseEnterPlay = () => {
-  //   setPlayHoverEffect(true);
-  // };
+  const handleMouseEnterPlay = () => {
+    setPlayHoverEffect(true);
+  };
 
-  // const handleMouseLeavePlay = () => {
-  //   setPlayHoverEffect(false);
-  // };
+  const handleMouseLeavePlay = () => {
+    setPlayHoverEffect(false);
+  };
 
   return (
     <>
-      {/* <div>
+      <div>
         <div className="mt-6 md:mt-[51px]">
           <div
             className={`w-[100%] h-12 py-4 px-6 md:p-6 flex justify-between items-center bg-light dark:bg-darker rounded-2xl ${
@@ -181,8 +181,8 @@ const Body = () => {
             <LiaExternalLinkAltSolid className="ml-2 dark:text-gray" />
           </div>
         </div>
-      </div> */}
-      <div>
+      </div>
+      {/* <div>
         <div className="flex flex-col items-center">
           <span
             className="mt-[132px]"
@@ -206,7 +206,7 @@ const Body = () => {
             the web instead.
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
