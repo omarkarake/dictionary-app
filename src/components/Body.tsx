@@ -67,6 +67,54 @@ const Body = () => {
             <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-purple " />
           </div>
         </div>
+        <div className="mt-[34px]">
+          <div className="flex justify-between items-center">
+            <p className="font-bold text-[18px] md:text-heading-m lg:font-bold lg:italic dark:text-lighter">
+              noun
+            </p>
+            <div className="w-[100%] h-[1px] bg-lightGray ml-[26px] dark:bg-darkGray"></div>
+          </div>
+          <p className="mt-[35px] text-gray font-normal md:text-heading-s">
+            Meaning
+          </p>
+          <ul className="mt-[17px] md:mt-[27px]">
+            <li className="flex justify-between">
+              <div className="h-[100%] mt-2">
+                <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+              </div>
+              <div>
+                <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                  (etc.) A set of keys used to operate a typewriter, computer
+                  etc.
+                </p>
+              </div>
+            </li>
+            <li className="flex justify-between mt-4">
+              <div className="h-[100%] mt-2">
+                <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+              </div>
+              <div>
+                <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                  A component of many instruments including the piano, organ,
+                  and harpsichord consisting of usually black and white keys
+                  that cause different tones to be produced when struck.
+                </p>
+              </div>
+            </li>
+            <li className="flex justify-between mt-4">
+              <div className="h-[100%] mt-2">
+                <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+              </div>
+              <div>
+                <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                  A device with keys of a musical keyboard, used to control
+                  electronic sound-producing devices which may be built into or
+                  separate from the keyboard device.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
