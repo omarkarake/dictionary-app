@@ -50,6 +50,16 @@ const Body = () => {
     setPlayHoverEffect(false);
   };
 
+  const handlePlayAudio = () => {
+    if (data?.phonetics) {
+      const audioUrl = data.phonetics.find((phonetic: any) => phonetic.audio)?.audio;
+      if (audioUrl) {
+        const audio = new Audio(audioUrl);
+        audio.play();
+      }
+    }
+  };
+
   return (
     <>
       <div>
@@ -100,6 +110,7 @@ const Body = () => {
                 }}
                 onMouseEnter={handleMouseEnterPlay}
                 onMouseLeave={handleMouseLeavePlay}
+                onClick={handlePlayAudio}
               >
                 {playHoverEffect ? (
                   <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-lighter " />
@@ -120,34 +131,30 @@ const Body = () => {
                   Meaning
                 </p>
                 <ul className="mt-[17px] md:mt-[27px]">
-                  {meaning.definitions.map(
-                    (definition: any, defIndex: number) => (
-                      <li key={defIndex} className="flex mt-4">
-                        <div className="h-[100%] mt-2">
-                          <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
-                        </div>
-                        <div>
-                          <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
-                            {definition.definition}
+                  {meaning.definitions.map((definition: any, defIndex: number) => (
+                    <li key={defIndex} className="flex mt-4">
+                      <div className="h-[100%] mt-2">
+                        <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+                      </div>
+                      <div>
+                        <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                          {definition.definition}
+                        </p>
+                        {definition.example && (
+                          <p className="ml-[25px] mt-[14px] text-gray text-[15px] leading-6  md:text-body-m">
+                            “{definition.example}”
                           </p>
-                          {definition.example && (
-                            <p className="ml-[25px] mt-[14px] text-gray text-[15px] leading-6  md:text-body-m">
-                              “{definition.example}”
-                            </p>
-                          )}
-                        </div>
-                      </li>
-                    )
-                  )}
+                        )}
+                      </div>
+                    </li>
+                  ))}
                 </ul>
                 {meaning.synonyms.length > 0 && (
                   <div className="mt-6 flex gap-10">
                     <p className="text-base text-gray md:text-heading-s md:text-[20px]">
                       Synonyms
                     </p>
-                    <p className="font-bold text-purple">
-                      {meaning.synonyms.join(", ")}
-                    </p>
+                    <p className="font-bold text-purple">{meaning.synonyms.join(', ')}</p>
                   </div>
                 )}
               </div>
