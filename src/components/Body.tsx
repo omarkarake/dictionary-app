@@ -52,7 +52,9 @@ const Body = () => {
 
   const handlePlayAudio = () => {
     if (data?.phonetics) {
-      const audioUrl = data.phonetics.find((phonetic: any) => phonetic.audio)?.audio;
+      const audioUrl = data.phonetics.find(
+        (phonetic: any) => phonetic.audio
+      )?.audio;
       if (audioUrl) {
         const audio = new Audio(audioUrl);
         audio.play();
@@ -131,30 +133,34 @@ const Body = () => {
                   Meaning
                 </p>
                 <ul className="mt-[17px] md:mt-[27px]">
-                  {meaning.definitions.map((definition: any, defIndex: number) => (
-                    <li key={defIndex} className="flex mt-4">
-                      <div className="h-[100%] mt-2">
-                        <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
-                      </div>
-                      <div>
-                        <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
-                          {definition.definition}
-                        </p>
-                        {definition.example && (
-                          <p className="ml-[25px] mt-[14px] text-gray text-[15px] leading-6  md:text-body-m">
-                            “{definition.example}”
+                  {meaning.definitions.map(
+                    (definition: any, defIndex: number) => (
+                      <li key={defIndex} className="flex mt-4">
+                        <div className="h-[100%] mt-2">
+                          <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+                        </div>
+                        <div>
+                          <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                            {definition.definition}
                           </p>
-                        )}
-                      </div>
-                    </li>
-                  ))}
+                          {definition.example && (
+                            <p className="ml-[25px] mt-[14px] text-gray text-[15px] leading-6  md:text-body-m">
+                              “{definition.example}”
+                            </p>
+                          )}
+                        </div>
+                      </li>
+                    )
+                  )}
                 </ul>
                 {meaning.synonyms.length > 0 && (
                   <div className="mt-6 flex gap-10">
                     <p className="text-base text-gray md:text-heading-s md:text-[20px]">
                       Synonyms
                     </p>
-                    <p className="font-bold text-purple">{meaning.synonyms.join(', ')}</p>
+                    <p className="font-bold text-purple">
+                      {meaning.synonyms.join(", ")}
+                    </p>
                   </div>
                 )}
               </div>
@@ -195,7 +201,7 @@ const Body = () => {
                 <p className="font-bold text-[20px] mt-11 dark:text-lighter">
                   No Definitions Found
                 </p>
-                <p className="text-gray text-body-m mt-6 text-center mb-[250px]">
+                <p className="text-gray text-body-m mt-6 text-center mb-[150px] lg:mb-[80px]">
                   Sorry pal, we couldn't find definitions for the word you were
                   looking for. You can try the search again at later time or
                   head to the web instead.
