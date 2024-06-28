@@ -51,16 +51,20 @@ const Body = () => {
             ""
           )}
         </div>
-        <div>
-          <div>
-            <p>keyboard</p>
-            <p>/ˈkiːbɔːd/</p>
+        <div className="w-[100%] h-auto flex justify-between items-center mt-7">
+          <div className="h-[100%] flex flex-col justify-between ">
+            <p className="font-bold text-[32px] md:text-[64px] dark:text-lighter lg:text-heading-l">
+              keyboard
+            </p>
+            <p className="text-body-m text-purple md:text-heading-m">
+              /ˈkiːbɔːd/
+            </p>
           </div>
           <div
-            className="h-12 w-12 flex justify-center items-center rounded-full"
+            className="h-12 w-12 md:h-[75px] md:w-[75px] flex justify-center items-center cursor-pointer rounded-full"
             style={{ backgroundColor: "rgba(164, 69, 237, 0.25)" }}
           >
-            <IoMdPlay className="w-[13px] h-[13px] text-purple cursor-pointer" />
+            <IoMdPlay className="w-[13px] h-[13px] md:w-[21px] md:h-[21px] text-purple " />
           </div>
         </div>
       </div>
