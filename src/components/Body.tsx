@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
-import { IoMdPlay } from "react-icons/io";
-import { LiaExternalLinkAltSolid } from "react-icons/lia";
+// import { IoMdPlay } from "react-icons/io";
+// import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
 const Body = () => {
   const [inputValue, setInputValue] = useState("");
+  const [data, setData] = useState<any>(null);
+  
+
   const [borderColor, setBorderColor] = useState("");
   const [borderColorRed, setBorderColorRed] = useState("");
-  const [playHoverEffect, setPlayHoverEffect] = useState(false);
+  // const [playHoverEffect, setPlayHoverEffect] = useState(false);
   // console.log(playHoverEffect);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,20 +20,38 @@ const Body = () => {
     setBorderColorRed(value !== "" ? "" : ""); // Reset border red color on typing
   };
 
-  const handleSearchClick = () => {
+  const handleSearchClick = async () => {
     setBorderColorRed(inputValue === "" ? "border-red" : "");
     if (!inputValue) {
       setBorderColor("border-red");
+      return;
+    }
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
+      );
+      const data = await response.json();
+      setData(data[0]);
+      console.log(data[0]);
+    } catch (error) {
+      console.error("Error fetching the data:", error);
+      setData(null);
     }
   };
 
-  const handleMouseEnterPlay = () => {
-    setPlayHoverEffect(true);
+  const handleKeyPress = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      await handleSearchClick();
+    }
   };
 
-  const handleMouseLeavePlay = () => {
-    setPlayHoverEffect(false);
-  };
+  // const handleMouseEnterPlay = () => {
+  //   setPlayHoverEffect(true);
+  // };
+
+  // const handleMouseLeavePlay = () => {
+  //   setPlayHoverEffect(false);
+  // };
 
   return (
     <>
@@ -46,6 +67,7 @@ const Body = () => {
               className="w-[250px] md:w-[400px] font-bold text-[20px] dark:text-lighter outline-none border-none bg-transparent text-dark placeholder:opacity-25"
               placeholder="Search for any word…"
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
               value={inputValue}
             />
             <RiSearchLine
@@ -60,9 +82,9 @@ const Body = () => {
           ) : (
             ""
           )}
-          {/* what to be rendered after fetching--------------------------------------- */}
         </div>
-        <div className="w-[100%] h-auto flex justify-between items-center mt-7">
+        {/* what to be rendered after fetching--------------------------------------- */}
+        {/* <div className="w-[100%] h-auto flex justify-between items-center mt-7">
           <div className="h-[100%] flex flex-col justify-between ">
             <p className="font-bold text-[32px] md:text-[64px] dark:text-lighter lg:text-heading-l">
               keyboard
@@ -181,7 +203,7 @@ const Body = () => {
             </p>
             <LiaExternalLinkAltSolid className="ml-2 dark:text-gray" />
           </div>
-        </div>
+        </div> */}
         {/* what to be rendered when there is no word---------------------------------------------------- */}
         {/* <div>
             <div className="flex flex-col items-center">
