@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
@@ -7,7 +7,6 @@ const Body = () => {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState<any>(null);
   const [dataWhenFetchIsWrong, setDataWhenFetchIsWrong] = useState<any>(null);
-  console.log(dataWhenFetchIsWrong);
 
   const [borderColor, setBorderColor] = useState("");
   const [borderColorRed, setBorderColorRed] = useState("");
@@ -31,7 +30,8 @@ const Body = () => {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
       );
       const data = await response.json();
-      "message" in data ? setDataWhenFetchIsWrong(data) : setData(data[0]);
+      "message" in data ? setDataWhenFetchIsWrong(data) : setData(null);
+      setData(data[0]);
       // console.log(data[0]);
     } catch (error) {
       console.error("Error fetching the data:", error);
