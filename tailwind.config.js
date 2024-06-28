@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -16,9 +15,9 @@ export default {
         red: "#FF5252",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        serif: ["Lora", "serif"],
-        mono: ["Inconsolata", "monospace"],
+        sans: ["sans-serif", "Inter"],
+        serif: ["serif", "Lora"],
+        mono: ["monospace", "Inconsolata"],
       },
       fontSize: {
         "heading-l": ["64px", "77px"],
@@ -30,5 +29,5 @@ export default {
     },
   },
   plugins: [],
-  darkMode: 'class', // Enable dark mode class
+  darkMode: "class", // Enable dark mode class
 };
