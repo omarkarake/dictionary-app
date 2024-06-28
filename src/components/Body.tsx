@@ -78,7 +78,7 @@ const Body = () => {
             Meaning
           </p>
           <ul className="mt-[17px] md:mt-[27px]">
-            <li className="flex justify-between">
+            <li className="flex">
               <div className="h-[100%] mt-2">
                 <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
               </div>
@@ -89,7 +89,7 @@ const Body = () => {
                 </p>
               </div>
             </li>
-            <li className="flex justify-between mt-4">
+            <li className="flex mt-4">
               <div className="h-[100%] mt-2">
                 <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
               </div>
@@ -101,7 +101,7 @@ const Body = () => {
                 </p>
               </div>
             </li>
-            <li className="flex justify-between mt-4">
+            <li className="flex mt-4">
               <div className="h-[100%] mt-2">
                 <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
               </div>
@@ -114,6 +114,12 @@ const Body = () => {
               </div>
             </li>
           </ul>
+        </div>
+        <div className="mt-6 flex gap-10">
+          <p className="text-base text-gray md:text-heading-s md:text-[20px]">
+            Synonyms
+          </p>
+          <p className="font-bold text-purple">electronic keyboard</p>
         </div>
       </div>
     </>
