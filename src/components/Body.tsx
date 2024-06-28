@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
+import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
 const Body = () => {
   const [inputValue, setInputValue] = useState("");
@@ -120,6 +121,46 @@ const Body = () => {
             Synonyms
           </p>
           <p className="font-bold text-purple">electronic keyboard</p>
+        </div>
+        <div className="mt-[35px] md:mt-[43px]">
+          <div className="flex justify-between items-center">
+            <p className="font-bold text-[18px] md:text-heading-m lg:font-bold lg:italic dark:text-lighter">
+              verb
+            </p>
+            <div className="w-[100%] h-[1px] bg-lightGray ml-[26px] dark:bg-darkGray"></div>
+          </div>
+        </div>
+        <div>
+          <p className="mt-[35px] text-gray font-normal md:text-heading-s">
+            Meaning
+          </p>
+          <ul className="mt-[17px] md:mt-[27px]">
+            <li className="flex">
+              <div className="h-[100%] mt-2">
+                <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
+              </div>
+              <div>
+                <p className="ml-[25px] text-dark text-[15px] leading-6 md:text-body-m dark:text-lighter">
+                  To type on a computer keyboard.
+                </p>
+                <p className="ml-[25px] mt-[14px] text-gray text-[15px] leading-6  md:text-body-m">
+                  “Keyboarding is the part of this job I hate the most.”
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="w-[100%] h-[1px] bg-lightGray mt-8 md:mt-[39px] dark:bg-darkGray"></div>
+        <div className="mt-[24px] md:mt-[22px] md:flex md:gap-6">
+          <p className="text-gray underline text-body-s cursor-pointer">
+            Source
+          </p>
+          <div className="flex items-end cursor-pointer">
+            <p className="text-dark text-body-s underline mt-2 md:mt-0 dark:text-lighter">
+              https://en.wiktionary.org/wiki/keyboard
+            </p>
+            <LiaExternalLinkAltSolid className="ml-2 dark:text-gray" />
+          </div>
         </div>
       </div>
     </>
