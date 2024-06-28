@@ -1,8 +1,9 @@
 const Body = () => {
   return (
     <>
-      <div>Body
-        <p>party time</p>
+      <div>
+        Body
+        <p>Aliquam</p>
       </div>
     </>
   );

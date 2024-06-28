@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* src/App.css */
+
+:root {
+  --font-family: sans-serif, "Inter";
+}
+
+body {
+  font-family: var(--font-family);
+}
