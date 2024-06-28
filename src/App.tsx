@@ -3,14 +3,14 @@ import "./App.css";
 import Body from "./components/Body";
 import Header from "./components/Header";
 
-function App() {
+const App: React.FC = () => {
   // Check system preference for dark mode
   const prefersDarkMode = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
 
-  const [selectedFont, setSelectedFont] = useState("Sans Serif");
-  const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode);
+  const [selectedFont, setSelectedFont] = useState<string>("Sans Serif");
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(prefersDarkMode);
 
   const handleFontChange = (font: string) => {
     setSelectedFont(font);
@@ -61,6 +61,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

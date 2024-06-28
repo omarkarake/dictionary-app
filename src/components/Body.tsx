@@ -1,16 +1,45 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
-const Body = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [data, setData] = useState<any>(null);
-  const [dataWhenFetchIsWrong, setDataWhenFetchIsWrong] = useState<any>(null);
+interface Phonetic {
+  text: string;
+  audio: string;
+}
 
-  const [borderColor, setBorderColor] = useState("");
-  const [borderColorRed, setBorderColorRed] = useState("");
-  const [playHoverEffect, setPlayHoverEffect] = useState(false);
+interface Definition {
+  definition: string;
+  example?: string;
+}
+
+interface Meaning {
+  partOfSpeech: string;
+  definitions: Definition[];
+  synonyms: string[];
+}
+
+interface DictionaryData {
+  word: string;
+  phonetic: string;
+  phonetics: Phonetic[];
+  meanings: Meaning[];
+  sourceUrls: string[];
+}
+
+interface ErrorData {
+  message: string;
+  resolution: string;
+  title: string;
+}
+
+const Body: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>("");
+  const [data, setData] = useState<DictionaryData | null>(null);
+  const [dataWhenFetchIsWrong, setDataWhenFetchIsWrong] = useState<ErrorData | null>(null);
+  const [borderColor, setBorderColor] = useState<string>("");
+  const [borderColorRed, setBorderColorRed] = useState<string>("");
+  const [playHoverEffect, setPlayHoverEffect] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -37,7 +66,6 @@ const Body = () => {
         setDataWhenFetchIsWrong(null);
         setData(data[0]);
       }
-      // console.log(data[0]);
     } catch (error) {
       console.error("Error fetching the data:", error);
       setData(null);
@@ -61,7 +89,7 @@ const Body = () => {
   const handlePlayAudio = () => {
     if (data?.phonetics) {
       const audioUrl = data.phonetics.find(
-        (phonetic: any) => phonetic.audio
+        (phonetic: Phonetic) => phonetic.audio
       )?.audio;
       if (audioUrl) {
         const audio = new Audio(audioUrl);
@@ -129,7 +157,7 @@ const Body = () => {
                 )}
               </div>
             </div>
-            {data.meanings.map((meaning: any, index: number) => (
+            {data.meanings.map((meaning: Meaning, index: number) => (
               <div key={index} className="mt-[34px]">
                 <div className="flex justify-between items-center">
                   <p className="font-bold text-[18px] md:text-heading-m lg:font-bold lg:italic dark:text-lighter">
@@ -142,7 +170,7 @@ const Body = () => {
                 </p>
                 <ul className="mt-[17px] md:mt-[27px]">
                   {meaning.definitions.map(
-                    (definition: any, defIndex: number) => (
+                    (definition: Definition, defIndex: number) => (
                       <li key={defIndex} className="flex mt-4">
                         <div className="h-[100%] mt-2">
                           <div className="w-[5px] h-[5px] bg-purple rounded-full"></div>
