@@ -4,14 +4,18 @@ import { RiSearchLine } from "react-icons/ri";
 const Body = () => {
   const [inputValue, setInputValue] = useState("");
   const [borderColor, setBorderColor] = useState("");
+  const [borderColorRed, setBorderColorRed] = useState("");
+  console.log(borderColorRed);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
-    setBorderColor(value !== "" ? "border-purple" : ""); // Reset border color on typing
+    setBorderColor(value !== "" ? "border-purple" : ""); // Reset border purple color on typing
+    setBorderColorRed(value !== "" ? "" : ""); // Reset border red color on typing
   };
 
   const handleSearchClick = () => {
+    setBorderColorRed(inputValue === "" ? "border-red" : "");
     if (!inputValue) {
       setBorderColor("border-red");
     }
@@ -37,6 +41,13 @@ const Body = () => {
             onClick={handleSearchClick}
           />
         </div>
+        {borderColorRed ? (
+          <p className="text-heading-s text-red mt-2">
+            Whoops, can’t be empty…
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
